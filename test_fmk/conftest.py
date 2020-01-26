@@ -1,4 +1,3 @@
-from os import environ
 from pytest import fixture
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities

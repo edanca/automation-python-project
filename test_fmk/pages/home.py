@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from ..pages.base import Base
+from test_fmk.basis.base import Base
 
 search_input = 'SearchText'
 search_btn = '//input[@type="submit" and @class="search-button"]'

@@ -38,4 +38,13 @@ class BaseElement:
         self.elem = WebDriverWait(self.driver, wait).until(
             EC.visibility_of_element_located(self.locator)
         )
-        return self.elem.text
+        text = self.elem.text
+        if text == '':
+            text = self.get_attribute('value')
+        return text
+
+    def get_attribute(self, attr, wait=60):
+        self.elem = WebDriverWait(self.driver, wait).until(
+            EC.visibility_of_element_located(self.locator)
+        )
+        return self.elem.get_attribute(attr)
