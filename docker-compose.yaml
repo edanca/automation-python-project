@@ -24,6 +24,23 @@ services:
       - chrome
     env_file:
       - ./test_fmk/.env
+    volumes:
+      - ${PWD}/allure_results:/test_fmk/allure_results
+    networks:
+      - default
+
+  allure:
+    hostname: allure
+    container_name: allure
+    image: "frankescobar/allure-docker-service"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 1
+      KEEP_HISTORY: "TRUE"
+    ports:
+      - "4040:4040"
+      - "5050:5050"
+    volumes:
+      - ${PWD}/allure_results:/app/allure-results
     networks:
       - default
 

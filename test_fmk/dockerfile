@@ -12,4 +12,4 @@ RUN pipenv install
 COPY . .
 
 # Run command
-CMD ["pipenv", "run", "pytest", "-vv"]
+CMD ["pipenv", "run", "pytest", "-vv", "--alluredir=./allure_results"]
