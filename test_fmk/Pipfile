@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 selenium = "*"
 pytest = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.7"
