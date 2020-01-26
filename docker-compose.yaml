@@ -22,6 +22,8 @@ services:
       context: test_fmk/
     depends_on:
       - chrome
+    env_file:
+      - ./test_fmk/.env
     networks:
       - default
 

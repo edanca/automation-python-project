@@ -15,9 +15,11 @@ class TestSearch:
     @fixture(autouse=True)
     def before(self, browser):
         self.home = Home(browser)
-        self.home.open()
         self.product_list = ProductList(browser)
         self.product = Product(browser)
+
+        self.home.open()
+        self.home.perform_login()
 
     def test_search_2nd_iphone_2nd_page(self, browser):
         self.home.search_input.input_text('iphone')

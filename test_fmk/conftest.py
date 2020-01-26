@@ -15,9 +15,10 @@ def browser():
         options.add_argument('--incognito')
         browser = webdriver.Chrome(options=options)
     elif env == 'docker':
-        sleep(3)
+        sleep(3)  # Giving time to chrome container to load
         url_selenium = 'http://chrome:4444/wd/hub'
         browser = webdriver.Remote(url_selenium, desired_capabilities=DesiredCapabilities.CHROME)
+        browser.maximize_window()
 
     yield browser
 
