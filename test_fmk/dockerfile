@@ -1,0 +1,15 @@
+FROM python:3.7-alpine3.11
+
+# Set the directory where we will copy and build
+WORKDIR /test_fmk/
+
+# Copy dependencies file and install them
+COPY Pipfile .
+RUN pip install pipenv
+RUN pipenv install
+
+# Copy SRC code and all other files contained in project
+COPY . .
+
+# Run command
+CMD ["pipenv", "run", "pytest", "-vv"]

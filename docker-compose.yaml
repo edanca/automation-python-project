@@ -10,3 +10,21 @@ services:
       - "5900:5900"
     volumes:
       - /dev/shm:/dev/shm
+    networks:
+      - default
+
+  test:
+    hostname: test
+    container_name: test
+    environment:
+      MY_ENV: docker
+    build:
+      context: test_fmk/
+    depends_on:
+      - chrome
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
