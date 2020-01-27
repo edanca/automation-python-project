@@ -31,6 +31,8 @@ class TestSearch:
 
         switch_window(browser, window_number=1)
 
-        quantity = int(self.product.item_quantity.get_text())
+        availability = self.product.items_available.get_text()
+        quantity_available = int(availability.split(' ')[0])
+        print(quantity_available)
 
-        assert quantity > 0
+        assert quantity_available > 0
