@@ -33,6 +33,5 @@ class TestSearch:
 
         availability = self.product.items_available.get_text()
         quantity_available = int(availability.split(' ')[0])
-        print(quantity_available)
 
         assert quantity_available > 0
