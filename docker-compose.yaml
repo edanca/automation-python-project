@@ -25,7 +25,7 @@ services:
     env_file:
       - ./test_fmk/.env
     volumes:
-      - ${PWD}/allure_results:/test_fmk/allure_results
+      - ${PWD}/test_fmk/allure_results:/test_fmk/allure_results
     networks:
       - default
 
@@ -40,7 +40,7 @@ services:
       - "4040:4040"
       - "5050:5050"
     volumes:
-      - ${PWD}/allure_results:/app/allure-results
+      - ${PWD}/test_fmk/allure_results:/app/allure-results
     networks:
       - default
 

@@ -62,3 +62,7 @@ class Home(Base):
         self.login_form_account.input_text(usr_email)
         self.login_form_pass.input_text(usr_pass)
         self.login_form_btn.click()
+
+    def search_product(self, product):
+        self.search_input.input_text(product)
+        self.search_btn.click()

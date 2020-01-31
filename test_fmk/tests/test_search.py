@@ -22,16 +22,13 @@ class TestSearch:
         self.home.perform_login()
 
     def test_search_2nd_iphone_2nd_page(self, browser):
-        self.home.search_input.input_text('iphone')
-        self.home.search_btn.click()
+        self.home.search_product('iphone')
 
-        self.product_list.scroll_down()
-        self.product_list.page_two_btn.wait_for_element_present().click()
-        self.product_list.product_list(elem_number=2).click()
+        self.product_list.go_to_page(2)
+        self.product_list.select_product_number(2)
 
         switch_window(browser, window_number=1)
 
-        availability = self.product.items_available.get_text()
-        quantity_available = int(availability.split(' ')[0])
+        availability = self.product.get_product_availability()
 
-        assert quantity_available > 0
+        assert availability > 0
